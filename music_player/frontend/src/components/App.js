@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { render } from 'react-dom';
+// Components
+import HomePage from './HomePage';
 
 export default class App extends Component {
   constructor(props) {
@@ -8,7 +10,7 @@ export default class App extends Component {
   render() {
     return (
       <Fragment>
-        <h1>Testing react!!</h1>
+        <HomePage/>
       </Fragment>
     )
   }
