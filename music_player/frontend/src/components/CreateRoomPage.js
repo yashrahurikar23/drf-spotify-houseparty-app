@@ -9,7 +9,8 @@ import { Link } from "react-router-dom";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-
+// API utils
+import { createRoom } from '../api/api';
 export default class CreateRoomPage extends Component {
   defaultVotes = 2;
 
@@ -44,19 +45,9 @@ export default class CreateRoomPage extends Component {
     });
   }
   
-  async requestCreateRoom({ votes_to_skip, guest_can_pause }) {
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        votes_to_skip,
-        guest_can_pause
-      }),
-    };
-
-    const response = await fetch("/api/create-room", requestOptions);
-    const data = await response.json();
-    console.log('data', data);
+  async requestCreateRoom(payload) {
+    const data = await createRoom(payload);
+    this.props.history.push(`/room/${data.code}`)
   }
 
 
