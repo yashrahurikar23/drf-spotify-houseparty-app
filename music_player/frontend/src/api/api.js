@@ -13,3 +13,12 @@ export const getRoomDetails = async(roomCode) => {
   const response = await fetch(`/api/get-room?code=${roomCode}`)
   return await response.json();
 }
+
+export const joinRoom = async(payload) => {
+  const requestOptions = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  };
+  return await fetch("/api/join-room", requestOptions);
+}
