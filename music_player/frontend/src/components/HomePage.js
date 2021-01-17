@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Link, Redirect, Route } from 'react-ro
 // Components
 import CreateRoomPage from './CreateRoomPage';
 import JoinRoomPage from './JoinRoomPage';
+import Room from './Room';
 
 function HomePage(props) {
   return (
@@ -13,6 +14,7 @@ function HomePage(props) {
           <Route exact path='/' ><p>This is the home page.</p></Route>
           <Route path='/join' component={JoinRoomPage} />
           <Route path='/create' component={CreateRoomPage} />
+          <Route path='/room/:roomCode' component={Room} />
         </Switch>
       </Router>
     </Fragment>
